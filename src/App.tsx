@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useContext} from "react";
+import "./App.css";
+import {BrowserRouter as Router, Redirect, Route, Switch,} from "react-router-dom";
+import {AuthContext} from "./components/AuthContextProvider/AuthContextProvider";
+import Login from "./components/Login/Login";
+import Home from "./components/Home/Home";
+import NavBar from "./NavBar/NavBar";
+import Register from "./components/Register/Register";
+import Gallery from "./components/Gallery/Gallery";
+
+const ProtectedRoute = (props: any) => {
+  if (props.user[1]) {
+    return <>{props.children}</>;
+  } else return <Redirect to={"/login"}/>;
+};
 
 function App() {
-	return (
-			<div className="App">
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo"/>
-					<p>
-						Edit <code>src/App.tsx</code> and save to reload.
-					</p>
-					<a
-							className="App-link"
-							href="https://reactjs.org"
-							target="_blank"
-							rel="noopener noreferrer"
-					>
-						Learn React
-					</a>
-				</header>
-			</div>
-	);
+  let {val, toggleAuth} = useContext(AuthContext);
+  return (
+      <div className="App">
+        <Router>
+          <NavBar/>
+          <Switch>
+            <Route path="/gallery">
+              <ProtectedRoute user={val}>
+                <Gallery/>
+              </ProtectedRoute>
+            </Route>
+            <Route path="/login">
+              <Login/>
+            </Route>
+            <Route path="/register">
+              <Register/>
+            </Route>
+            <Route path="/">
+              <Home/>
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+  );
 }
 
 export default App;
