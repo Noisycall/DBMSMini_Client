@@ -1,7 +1,8 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-
+import browse from "./browse.png";
+import shop from "./shopping.png";
 const Home = () => {
   const hist = useHistory();
   return (
@@ -13,7 +14,7 @@ const Home = () => {
       </Row>
       <Row>
         <Col lg={6} md={12}>
-          <img src="https://via.placeholder.com/150" alt="placeholder" />
+          <img src={browse} className="h-50" alt="placeholder" />
           <br />
           <br />
           <p className="font-weight-bold text-center text-center">
@@ -32,7 +33,7 @@ const Home = () => {
           </Button>
         </Col>
         <Col lg={6} md={12}>
-          <img src="https://via.placeholder.com/150" alt="placeholder" />
+          <img src={shop} className="h-50" alt="placeholder" />
           <br />
           <br />
           <p className="font-weight-bold text-center">

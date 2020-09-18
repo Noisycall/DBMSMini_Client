@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Carousel,
-  Col,
-  Container,
-  Row,
-} from "react-bootstrap";
+import { Carousel, Col, Container, Row } from "react-bootstrap";
 
 const Gallery = () => {
   let [art, setArt] = useState([] as Array<any>);
@@ -14,7 +9,7 @@ const Gallery = () => {
       return (
         <img
           style={{
-            maxWidth: "75vw",
+            maxWidth: "500px",
             objectFit: "scale-down",
             marginBottom: "3px",
           }}
@@ -44,7 +39,7 @@ const Gallery = () => {
           <h1>Gallery</h1>
         </Col>
       </Row>
-      <Row>
+      {/*<Row>
         <Col>
           <h3>Featured Art</h3>
         </Col>
@@ -52,7 +47,7 @@ const Gallery = () => {
       <Row>
         <Col>{featured()}</Col>
         <Col>{featured()}</Col>
-      </Row>
+      </Row>*/}
 
       <Row className="mt-3">
         <Col>

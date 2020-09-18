@@ -22,9 +22,9 @@ const NavBar = () => {
         <Nav className="mr-auto">
           <Nav.Link
             style={{ display: val[0] === "curator" ? "" : "none" }}
-            as="div"
+            href="/manage/list"
           >
-            <SLink to={"/manage"}>Manage</SLink>
+            Manage
           </Nav.Link>
           <Nav.Link as="div">
             <SLink to={"/gallery"}>Gallery</SLink>
